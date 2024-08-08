@@ -17,3 +17,21 @@ options:
 ```
 
 In order to use `--createDICOMDIR` option and create a DICOMDIR from the dcm files, you must have dcmtk installed on your computer.
+
+## Installation
+
+To install dcmtk, which is required for some feature, see the installation page on [Download of DCMTK Tools](https://dcmtk.org/en/dcmtk/dcmtk-tools/).
+
+For Arch Linux, you will find it in the AUR:
+
+```
+paru -S dcmtk-git
+```
+
+It is recommended to install DICOM-Manager in a Python virtual environment.
+
+```
+python -m venv Dicom-Manager
+source Dicom-Manager/bin/activate
+pip install git+https://github.com/fantomH/DICOM-Manager.git
+```
