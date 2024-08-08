@@ -2,7 +2,7 @@
 DICOM Manager is a CLI tool to read and modify DICOM.
 
 ```
-usage: dicom-manager [-h] [-d DIRECTORY] [-l {DICOMDIR,dcm}] [-r {DICOMDIR,dcm,selection}] [-a] [--createDICOMDIR]
+usage: dicom-manager [-h] [-d DIRECTORY] [-l {DICOMDIR,dcm}] [-r {DICOMDIR,dcm,selection}] [-a] [--modifyfromfile MODIFYFROMFILE] [--createDICOMDIR]
 
 options:
   -h, --help            show this help message and exit
@@ -13,6 +13,8 @@ options:
   -r {DICOMDIR,dcm,selection}, --read {DICOMDIR,dcm,selection}
                         Read DICOMDIR, all dcm files or select a file to read.
   -a, --anonymize       Anonymize DICOM files.
+  --modifyfromfile MODIFYFROMFILE
+                        Modify values from file.
   --createDICOMDIR      Creates a DICOMDIR.
 ```
 

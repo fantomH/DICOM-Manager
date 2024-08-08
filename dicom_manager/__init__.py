@@ -7,12 +7,12 @@
 
 import argparse
 import os
+import shutil
+import subprocess
 
 import magic
 import pydicom
 from pydicom import (dcmread)
-import shutil
-import subprocess
 
 def locate_dicomdir(dicom_directory, msg=False):
     
@@ -182,6 +182,9 @@ def main():
                         action='store_true',
                         help='Anonymize DICOM files.'
                        )
+    parser.add_argument('--modifyfromfile',
+                        help='Modify value from file.'
+                       )
     parser.add_argument('--createDICOMDIR',
                         action='store_true',
                         help='Creates a DICOMDIR.'
@@ -239,6 +242,33 @@ def main():
                     }
 
         modify_dcm(dicom_directory, dcm_list, modifications, output_directory)
+
+    # :--/ modify from file /--:
+    if args.modifyfromfile:
+
+        modifications = {}
+        with open(args.modifyfromfile) as _input:
+            for line in _input:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                else:
+                    key, value = line.split(':', 1)
+                    modifications[key.strip()] = value.strip()
+
+        if modifications:
+
+            output_directory = dicom_directory + '_MODIFIED'
+            if os.path.isdir(output_directory):
+                shutil.rmtree(output_directory, ignore_errors=True)
+            os.makedirs(output_directory)
+
+            dcm_list = locate_dcm(dicom_directory)
+
+            modify_dcm(dicom_directory, dcm_list, modifications, output_directory)
+
+        else:
+            print(f"[!] Check the modifications file, no values were found!")
 
     # :--/ create DICOMDIR /--:
 
