@@ -9,6 +9,7 @@
 
 # (* python venv *)
 venv/
+build/
 
 # (* python flask *)
 instance/*.db
