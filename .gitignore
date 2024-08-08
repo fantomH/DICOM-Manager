@@ -1,0 +1,24 @@
+# :----------------------------------------------------------------------- INFO
+# :[.gitignore]
+# :author        : fantomH
+# :created       : 2023-09-17 12:41:45 UTC
+# :updated       : 2024-08-08 12:06:43 UTC
+# :description   : .gitignore file.
+
+# :-----/ PYTHON /-----:
+
+# (* python venv *)
+venv/
+
+# (* python flask *)
+instance/*.db
+migrations/
+
+# (* python other *)
+__pycache__/
+*.egg-info/
+
+# :-----/ OTHERS /------:
+
+# (* libreoffice *)
+.~lock*
