@@ -1,9 +1,9 @@
-# :----------------------------------------------------------------------- INFO
-# :[dicom_manager/setup.py]
-# :author        : Pascal Malouin
-# :created       : 2023-05-26 16:36:50 UTC
-# :updated       : 2024-08-08 19:12:12 UTC
-# :description   : Setup script for dicom_manager
+# ------------------------------------------------------------------------ INFO
+# [DICOM-Manager/setup.py]
+# author        : Pascal Malouin @https://github.com/fantomH
+# created       : 2023-05-26 16:36:50 UTC
+# updated       : 2025-11-06 21:04:05 UTC
+# description   : Setup script for dicom_manager.
 
 from setuptools import (
     setup,
@@ -12,7 +12,7 @@ from setuptools import (
 
 setup(
     name='DICOM-Manager',
-    version='1.0.1',
+    version='1.0.2',
     packages=find_packages(),
     author="Pascal Malouin",
     author_email="pascal.malouin@gmail.com",
