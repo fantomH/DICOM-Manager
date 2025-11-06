@@ -1,14 +1,15 @@
-# :----------------------------------------------------------------------- INFO
-# :[dicom_manager/__init__.py]
-# :author        : Pascal Malouin
-# :created       : 2023-05-26 16:36:50 UTC
-# :updated       : 2024-08-07 21:03:36 UTC
-# :description   : DICOM manipulation tools.
+# ------------------------------------------------------------------------ INFO
+# [/DICOM-Manager/dicom_manager/__init__.py]
+# author        : Pascal Malouin @https://github.com/fantomH
+# created       : 2023-05-26 16:36:50 UTC
+# updated       : 2025-11-06 20:56:05 UTC
+# description   : DICOM manipulation tools.
 
 import argparse
 import os
 import shutil
 import subprocess
+import sys
 
 import magic
 import pydicom
@@ -189,6 +190,13 @@ def main():
                         action='store_true',
                         help='Creates a DICOMDIR.'
                        )
+
+    # //print help if no argument are given.
+    if len(sys.argv) == 1:
+        print(f"[!] No argument given, showing help.")
+        print()
+        parser.print_help()
+        sys.exit(0)
 
     args = parser.parse_args()
 
